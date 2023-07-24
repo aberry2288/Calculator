@@ -66,7 +66,7 @@ function divide() {
     numberOne = parseFloat(numberOne);
     numberTwo = parseFloat(numberTwo);
 
-       //divide them
+    //divide them
     let sum = numberOne / numberTwo;
 
     if (numberTwo == 0) {
@@ -112,7 +112,13 @@ function multiplyAll() {
 
         let number = parseInt(numberAsString);
 
-        sum = sum + number;
+        sum = sum * number;
+
+        if (sum == 0) {
+            sum = sum;}
+
+        else if (sum = 1){
+            sum = number;}
     }
 
     let resultsDiv = document.getElementById('results');
@@ -120,13 +126,65 @@ function multiplyAll() {
 }
 
 function average() {
+    let numberSeries = document.getElementById('numberSeries').value;
 
+    let numberArray = numberSeries.split('');
+
+    let sum = 0;
+
+    for (let i = 0; i < numberArray.length; i = i + 1) {
+
+        let numberAsString = numberArray[i];
+
+        let number = parseInt(numberAsString);
+
+        sum = sum + number / numberArray.length;
+
+
+    }
+
+    let resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = sum;
 }
 
 function minimum() {
+    let numberSeries = document.getElementById('numberSeries').value;
 
+    let numberArray = numberSeries.split('');
+
+    //let minimum = numberArray[0]
+    //if(num<min) {min=num} - from class
+    let sum = 0;
+
+    for (let i = 0; i < numberArray.length; i = i + 1) {
+
+        let numberAsString = numberArray[i];
+
+        let number = parseFloat(numberAsString);
+
+        sum = Math.min.apply(Math, numberArray)
+    }
+
+    let resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = sum;
 }
 
 function maximum() {
+    let numberSeries = document.getElementById('numberSeries').value;
 
+    let numberArray = numberSeries.split('');
+
+    let sum = 0;
+
+    for (let i = 0; i < numberArray.length; i = i + 1) {
+
+        let numberAsString = numberArray[i];
+
+        let number = parseFloat(numberAsString);
+
+        sum = Math.max.apply(Math, numberArray)
+    }
+
+    let resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = sum;
 }
