@@ -104,7 +104,7 @@ function multiplyAll() {
 
     let numberArray = numberSeries.split('');
 
-    let sum = 0;
+    let product = 1;
 
     for (let i = 0; i < numberArray.length; i = i + 1) {
 
@@ -112,17 +112,11 @@ function multiplyAll() {
 
         let number = parseInt(numberAsString);
 
-        sum = sum * number;
-
-        if (sum == 0) {
-            sum = sum;}
-
-        else if (sum = 1){
-            sum = number;}
+        product = product * number;
     }
 
     let resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = sum;
+    resultsDiv.innerHTML = product;
 }
 
 function average() {
@@ -138,35 +132,35 @@ function average() {
 
         let number = parseInt(numberAsString);
 
-        sum = sum + number / numberArray.length;
-
-
+        sum = sum + number;
     }
 
+    let average = sum / numberArray.length;
+
     let resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = sum;
+    resultsDiv.innerHTML = average;
 }
 
 function minimum() {
-    let numberSeries = document.getElementById('numberSeries').value;
 
+    let numberSeries = document.getElementById('numberSeries').value;
     let numberArray = numberSeries.split('');
 
-    //let minimum = numberArray[0]
-    //if(num<min) {min=num} - from class
-    let sum = 0;
+    let minimum = parseInt(numberArray[0]);
 
-    for (let i = 0; i < numberArray.length; i = i + 1) {
+    for (let i = 1; i < numberArray.length; i = i + 1) {
 
         let numberAsString = numberArray[i];
 
-        let number = parseFloat(numberAsString);
+        let number = parseInt(numberAsString);
 
-        sum = Math.min.apply(Math, numberArray)
+        if (number < minimum) {
+            minimum = number;
+        }
     }
 
     let resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = sum;
+    resultsDiv.innerHTML = minimum;
 }
 
 function maximum() {
@@ -174,7 +168,7 @@ function maximum() {
 
     let numberArray = numberSeries.split('');
 
-    let sum = 0;
+    let maximum = 0;
 
     for (let i = 0; i < numberArray.length; i = i + 1) {
 
@@ -182,9 +176,9 @@ function maximum() {
 
         let number = parseFloat(numberAsString);
 
-        sum = Math.max.apply(Math, numberArray)
+        maximum = Math.max.apply(Math, numberArray)
     }
 
     let resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = sum;
+    resultsDiv.innerHTML = maximum;
 }
